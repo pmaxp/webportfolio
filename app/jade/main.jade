@@ -1,0 +1,26 @@
+include _common/_mixins
+
+doctype html
+html(lang='ru')
+	head
+		meta(charset='UTF-8')
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		<!-- SEO -->
+		meta(name="description" content="Popov_Maxim_homework")
+		meta(name="keywords" content="Popov_Maxim_homework")
+		meta(name="author" content="Popov_Maxim")
+		<!-- ICO -->
+		link(rel="shortcut icon" type="image/x-icon" href="max.ico")
+		link(rel="icon" type="image/x-icon" href="max.ico")  
+		<!-- CSS -->
+		link(rel="stylesheet" href="css/main.css")
+
+		title
+			block title
+	body
+		.page
+			block content
+
+	script(src='js/main.js')
+

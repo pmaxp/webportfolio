@@ -1,0 +1,10 @@
+{
+  "name": "Shablon",
+  "authors": [
+    "PMAXP <popovmaxp@gmail.com>"
+  ],
+  "devDependencies": {
+    "modernizer": "~2.8.2",
+    "_normalize.scss": "git://github.com/jjt/_normalize.scss.git#~2.1.3"
+  }
+}

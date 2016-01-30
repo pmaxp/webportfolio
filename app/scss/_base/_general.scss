@@ -1,0 +1,31 @@
+
+*{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+ul {
+	// font-size: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+html, body{
+	height: 100%;
+	min-width: 212px;
+}
+.page{
+	min-height: 100%;
+	position: relative; 
+}
+.content{
+	padding-bottom: 81px;
+}
+$colorBackMain: #eff3f7;
+$colorFontMain: #5a636b;
+$colorFontMeny: #8196ac;
+$colorBackAccent: #2fa5bc;
+$colorFontAccent: #fff;
+$colorBorderGradient: black;
+$colorIconMeny: #58697a;
+$colorSkils: red;

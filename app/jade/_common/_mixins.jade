@@ -1,0 +1,13 @@
+mixin socials(pos)
+	div(class='#{pos}-socials-block')
+		ul.socials__list
+			-
+				var socials = {
+					'fb':'#fb',
+					'vk':'#vk',
+					'tw':'#tw'
+				};
+			each value, key in socials
+				li.socials__item
+					a(target="_blank" href=value class='socials__link socials__link_#{key}')
+						span.social-text= key

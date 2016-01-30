@@ -1,0 +1,9 @@
+php/vendor
+.sass-cache
+app/bower
+node_modules
+/dist
+.idea/
+.DS_Store
+app/scss/_other/_sprite.scss
+

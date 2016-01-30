@@ -1,0 +1,39 @@
+.footer{
+	position: absolute;
+	bottom: 0;
+	height: 35px;
+	background: $colorBackMain;
+	width: 100%;
+	&__wrapper{
+		margin: 0 auto;
+		width: 92.1875%;
+		height: 100%;
+		padding: 5px 0;
+		text-align: center;
+		position: relative;
+	}
+	&:before{
+		display: block;
+		content: '';
+		height: 2px;
+		background: $colorBorderGradient;
+	}	
+}
+.footer-content{
+	height: 100%;	
+	&:before{
+		content: '';
+		height: 100%;
+		width: 0;
+		display: inline-block;
+		vertical-align: middle;	
+	}
+}
+.footer-text{
+	color: $colorFontMain;
+	width: 90%;
+	font-size: 0.8rem;
+	line-height: 0.8;
+	display: inline-block;
+	vertical-align: middle;
+}
