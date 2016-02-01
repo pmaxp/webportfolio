@@ -7,9 +7,13 @@
   }
   &:after{
     clear: both;
-  }
-  
+  }   
 }
+
+@mixin myFont($fonts){
+  font-family: $fonts, arial, helvetica;
+}
+
 @mixin angle_45 {
   -moz-transform: rotate(45deg);  /* Firefox */
   -o-transform: rotate(45deg);  /* Opera */

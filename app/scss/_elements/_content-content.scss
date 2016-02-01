@@ -1,21 +1,94 @@
 .content-section{
-	padding: 10px;
-  background: $colorBackMain;
-  text-align: center;
-  margin-bottom: 20px;
+	line-height: 1;
+	padding: 11px 10px;
+	background: $colorBackMain;
+	text-align: center;
+	margin-bottom: 20px;
+	color: $colorFontMain;
 }
-$fotoSize: 135px;
-.content-section-foto{
-  margin: 0 auto;
-  height: $fotoSize;
-  width: $fotoSize;
-  border: 3px solid $colorBackAccent;
-  border-radius: 50%;
-  overflow: hidden;
-  background: $colorBackAccent;
+.content-section-title{
+	font-size: 1.5rem;
+	margin: 0 0 26px;
+	color: $colorBackAccent;
+}
 
+$fotoSize: 130px;
+
+.content-section-foto{
+	margin: 0 auto;
+	height: $fotoSize;
+	width: $fotoSize;
+	border: 3px solid $colorBackAccent;
+	border-radius: 50%;
+	overflow: hidden;
+	background: $colorBackAccent;
+	margin-bottom: 29px;
 }
 .content-section-foto-img{
-  max-width: 100%;
-  max-height: 100%;
+	max-width: 100%;
+	max-height: 100%;
+}
+.content-section-information{
+	margin-bottom: 20px;
+}
+.content-section-information-item{
+	margin-bottom: 31px;
+	&:last-child{
+		margin-bottom: 0;
+	}
+}
+.information-option{
+	font-size: 1.25rem;
+	display: block;
+	@include myFont(firasans-medium);
+	margin-bottom: 4px
+}
+.information-value{
+	font-size: 1.2rem;
+	display: block;
+	@include myFont(firasans-regular);	
+}
+.skills-list{
+	width: 80%;
+	margin: 0 auto;
+}
+.skills-item{
+	font-size: 0.9rem;
+	display: inline-block;
+	@include myFont(proximanovacond-semibold-webfont);
+	margin-left: 6px;
+	background-color: $colorBackAccent;
+	background: $colorSkillsGradient;
+	color: $colorFontAccent;
+	border-radius: 3px;
+	margin: 10px 6px 0; 
+	padding: 3px 9px;
+}
+
+.content-section-work-icon{	
+	@include my-sprite($work);
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+.content-section-work-block, .content-section-education-block{
+	margin-bottom: 10px;
+}
+.content-section-education-option, .content-section-work-option{
+	margin-bottom: 10px;
+	font-size: 1.05rem;
+}
+.content-section-education-value, .content-section-work-value{
+	font-size: 0.9rem;
+	@include myFont(firasans-light);
+}
+.content-section-courses-icon{
+	@include my-sprite($courses);
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+
+.content-section-education-icon{
+	@include my-sprite($education);
+	margin: 2px auto;
+	margin-bottom: 10px;
 }

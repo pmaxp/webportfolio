@@ -1,2 +1,28 @@
 .content-sidebar
-	+socials('content')
+	.content-sidebar-inner
+		ul.content-sidebar-list
+			li.content-sidebar-item
+				.content-sidebar-title Контакты
+			-
+				var contacts = {
+					'email': {
+						clas:'email',
+						val:'popovmaxp@gmail.com',
+						href:'mailto:popovmaxp@gmail.com'
+					},
+					'phone': {
+						clas:'phone',
+						val:'+7(926) 836-81-52',
+						href:'tel:+79268368152'
+					},
+					'skype': {
+						clas:'skype',
+						val:'p_max_p',
+						href:'skype:p_max_p?chat'
+					}
+				};
+			each value, key in contacts
+				li.content-sidebar-item
+					a(class='icon-#{value.clas}' href=value.href).content-sidebar-contact= value.val
+
+		+socials('sidebar')

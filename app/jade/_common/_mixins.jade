@@ -33,10 +33,12 @@ mixin skills()
 		-
 			var menus = [
 			'html',
+			'jade',
 			'css',
+			'scss',
 			'git',
+			'jquery',
 			'javascript'
 			];
 		each value in menus
-			li.skills-item
-				span.skills-text= value
+			li.skills-item= value

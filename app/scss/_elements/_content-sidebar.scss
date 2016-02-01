@@ -1,3 +1,22 @@
 .content-sidebar{
-  width: 150px;
+}
+.content-sidebar-title{
+	display: none;
+}
+$myConts: email, phone, skype;
+
+@each $item in $myConts {
+
+  .icon-#{$item}{
+		&:before{
+			@include my-sprite($email);
+		}
+	}
+}
+
+.icon-phone{
+	
+}
+.icon-skype{
+	
 }

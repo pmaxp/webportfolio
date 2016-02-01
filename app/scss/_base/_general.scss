@@ -1,6 +1,8 @@
 
 *{
 	box-sizing: border-box;
+	@include myFont(firasans-book);
+	font-weight: normal;
 }
 ul {
 	// font-size: 0;
@@ -20,15 +22,17 @@ html, body{
 	padding-bottom: 35px;
 	position: relative;
 }
-.content-inner{
+.content-content-inner{
 	width: 91.1875%;
 	margin:0 auto;
 }
+
 $colorBackMain: #eff3f7;
 $colorFontMain: #5a636b;
 $colorFontMeny: #8196ac;
 $colorBackAccent: #2fa5bc;
 $colorFontAccent: #fff;
-$colorBorderGradient: linear-gradient(to left, #f2f6fa 0%, #1c667a 50%, #f2f6fa 100%);;
+$colorBorderGradient: linear-gradient(to left, #f2f6fa 0%, #1c667a 50%, #f2f6fa 100%);
+$colorSkillsGradient: linear-gradient(to bottom, #3ba8c0 0%,#3ba8c0 50%,#2e8ca2 51%,#2e8ca2 100%);
 $colorIconMeny: #58697a;
 $colorSkils: red;

@@ -89,8 +89,7 @@ gulp.task('jade', function () {
   gulp.src(path.app.jade)
     .pipe(plumber())
     .pipe(jade({
-      locals: YOUR_LOCALS,
-      pretty: '\t'
+      locals: YOUR_LOCALS
     })).on('error', log)
     .pipe(gulp.dest(path.dist.html))
     .pipe(reload({stream: true}));
