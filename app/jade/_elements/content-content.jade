@@ -1,1 +1,30 @@
-.content-content All content
+.content-content
+  .content-content-inner
+    section.content-section
+      h2.content-section-title Основная информация
+      .content-section-foto
+        img(src="img/moe_foto.jpg" title='Мое фото' alt='My Foto').content-section-foto-img
+      .content-section-information
+        ul.content-section-information-list
+          -
+            var info = {
+              'Меня зовут:':'Попов Максим Павлович',
+              'Мой возраст:':'26 лет',
+              'Мой город:':'Москва, Россия',
+              'Моя специлизация:':'FRONTEND разработчик',
+              'Ключевые навыки:':''
+            };
+          each value, key in info
+            if key !== 'Ключевые навыки:'
+              li.content-section-information-item
+                span.information-option= key
+                span.information-value= value
+            else
+              li.content-section-information-item
+                span.information-option= key
+                +skills()
+    section.content-section
+      h2.content-section-title Опыт работы
+
+    section.content-section
+      h2.content-section-title Образование

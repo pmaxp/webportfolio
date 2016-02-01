@@ -1,3 +1,21 @@
-.content-socials-block{
-	
+.content-section{
+	padding: 10px;
+  background: $colorBackMain;
+  text-align: center;
+  margin-bottom: 20px;
+}
+$fotoSize: 135px;
+.content-section-foto{
+  margin: 0 auto;
+  height: $fotoSize;
+  width: $fotoSize;
+  border: 3px solid $colorBackAccent;
+  border-radius: 50%;
+  overflow: hidden;
+  background: $colorBackAccent;
+
+}
+.content-section-foto-img{
+  max-width: 100%;
+  max-height: 100%;
 }

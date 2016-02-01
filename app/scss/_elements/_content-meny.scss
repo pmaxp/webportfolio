@@ -1,0 +1,34 @@
+.content-menu{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: -13px;
+  display: none;
+}
+
+.menu-item{
+  text-align: center;
+  &:first-child .menu-link{
+    border-top: 0;
+  }
+}
+.menu-link{
+  padding: 10px 5px;
+  display: block;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: $colorFontMain;
+  border-top: 1px solid $colorBackAccent;
+  background: $colorBackMain;
+  &:hover{
+    color: $colorBackAccent;
+  }
+  &-active{
+    background: $colorBackAccent;
+    color: $colorFontAccent;
+    &:hover{
+      color: $colorFontMain;
+    }
+  }
+
+}

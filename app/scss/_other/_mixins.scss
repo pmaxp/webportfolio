@@ -1,3 +1,4 @@
+//@include clearfix;
 
 @mixin clearfix{
   &:before, &:after{
@@ -31,7 +32,12 @@
   // parent (overflow: hidden;)
 }
 
-
+@mixin lineGradient{
+  display: block;
+  content: '';
+  height: 2px;
+  background: $colorBorderGradient;
+}
 
 @mixin sprite-image-path($sprite) {
   $sprite-image: nth($sprite, 9);

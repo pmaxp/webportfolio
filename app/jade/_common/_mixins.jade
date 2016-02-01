@@ -11,3 +11,32 @@ mixin socials(pos)
 				li.socials__item
 					a(target="_blank" href=value class='socials__link socials__link_#{key}')
 						span.social-text= key
+
+mixin menus(active)
+	ul.menu-list
+		-
+			var menus = {
+			'Обо мне': '#my',
+			'Мои работы': '#portfolio',
+			'Связаться со мной': '#connect'
+			};
+		each value, key in menus
+			if value !== active
+				li.menu-item
+					a(href=value).menu-link= key
+			else
+				li.menu-item
+					a(href=value).menu-link-active.menu-link= key
+
+mixin skills()
+	ul.skills-list
+		-
+			var menus = [
+			'html',
+			'css',
+			'git',
+			'javascript'
+			];
+		each value in menus
+			li.skills-item
+				span.skills-text= value
