@@ -3,8 +3,11 @@
 }
 .content-portfolio-item{
 	width: 90%;
+	max-width: 300px;
 	margin: 0 auto;
+	display: inline-block;
 	@include clearfix;
+	padding: 10px 10px 0 10px;
 }
 .content-portfolio-list{
 	@include clearfix;
