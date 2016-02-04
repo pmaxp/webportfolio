@@ -16,15 +16,96 @@ html, body{
 }
 .page{
 	min-height: 100%;
-	position: relative; 
+	position: relative;
+	background: url(../img/comppattern.png) #fbfcfd;
 }
 .content{
 	padding-bottom: 35px;
 	position: relative;
+	@include clearfix;
+	@include respond-to(medium-screens) {
+		padding-bottom: 55px;
+	}
+	@include respond-to(wide-screens) { 
+		&-inner{
+			width: 960px;
+			margin: 0 auto;		
+		}
+		padding-bottom: 78px;
+	}	
 }
-.content-content-inner{
+.content-content{
+	&-inner{
+		width: 91.1875%;
+		margin:0 auto;
+	}
+	@include respond-to(wide-screens) { 
+		width: 650px;
+		display: block;
+		float: right;
+		vertical-align: top;
+		&-inner{
+			width: 100%;			
+		}
+	}	
+}
+
+.socials__list{
 	width: 91.1875%;
 	margin:0 auto;
+	@include respond-to(medium-screens) {
+		width: 84.1875%;
+	}
+}
+.socials__item{
+	display: inline-block;
+	width: 25%;
+	text-align: center;
+	&:last-child{
+		margin-right: 0;
+	}
+}
+.socials__link{
+	overflow: hidden;
+	display: inline-block;
+	outline: none;
+	&:focus{
+		outline: none;
+	}
+	.social-text{
+		font-size: 0;
+	}
+}
+
+.socials__link_facebook{
+	@include my-sprite ($facebook);
+	&:hover{
+		@include my-sprite ($facebook-hover);
+	}
+}
+.socials__link_twitter{
+	@include my-sprite ($twitter);
+	&:hover{
+		@include my-sprite ($twitter-hover);
+	}
+}
+.socials__link_vkontacte{
+	@include my-sprite ($vkontacte);
+	&:hover{
+		@include my-sprite ($vkontacte-hover);
+	}
+}
+.socials__link_github{
+	@include my-sprite ($github);
+	&:hover{
+		@include my-sprite ($github-hover);
+	}
+}
+.hoverhide{
+	display: none;
+}
+.hovershow{
+	display: block;
 }
 
 $colorBackMain: #eff3f7;

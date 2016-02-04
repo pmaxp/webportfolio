@@ -1,22 +1,102 @@
 .content-sidebar{
+	line-height: 1;
+	@include transition( all 0.6s ease-out);
+	@include respond-to(wide-screens) {
+		display: inline;
+		width: 250px;
+		float: left;
+		border-radius: 4px;
+		overflow: hidden;
+	}
+}
+.content-sidebar-list{	
+	margin-bottom: 20px;
+	background: $colorBackAccent * 1.45;
+	@include respond-to(wide-screens) {		
+		display: block;
+		margin-bottom: 0;
+	}
 }
 .content-sidebar-title{
 	display: none;
-}
-$myConts: email, phone, skype;
-
-@each $item in $myConts {
-
-  .icon-#{$item}{
-		&:before{
-			@include my-sprite($email);
-		}
+	font-size: 1.3rem;
+	padding: 8px;
+	padding-left: 10%;
+	background: $colorBackAccent;
+	color: $colorFontAccent;
+	@include respond-to(wide-screens) {
+		display: block;
 	}
 }
 
+.content-sidebar-link{
+	display: block;	
+}
+.content-sidebar-item{	
+	@include respond-to(medium-screens) {
+		width: 32%;
+		@include inBlockMiddle;	
+		&:first-child{
+			display: none;
+		}		
+	}
+	@include respond-to(wide-screens) {
+		display: block;
+		width: 100%;
+		&:first-child{
+			display: block;
+		}		
+	}
+}
+.content-sidebar-item-inner{
+	width: 70%;
+	margin: 0 auto;
+	@include respond-to(medium-screens) {		
+		width: 70%	
+	}
+	@include respond-to(wide-screens) {
+		width: 100%;
+		display: inline-block;
+	}
+}
+.content-sidebar-icon{
+	display: inline-block;
+	vertical-align: middle;
+	width: 20%;
+	text-align: center;
+}
+.content-sidebar-text{
+	width: 80%;
+	display: inline-block;
+	padding: 12px 0;
+	color: $colorFontAccent;
+	text-decoration: none;
+	vertical-align: middle;
+	&:hover{
+		text-decoration: underline;
+	}
+}
+.link-email{
+	background: $colorBackAccent * 1.2;
+}
+.link-phone{
+	background: $colorBackAccent * 1.325;
+}
+.link-skype{
+	background: $colorBackAccent * 1.45;
+}
+.icon-email{
+	@include iconContact($email);	
+}
 .icon-phone{
-	
+	@include iconContact($phone);
 }
 .icon-skype{
-	
+	@include iconContact($skype);
+}
+.sidebar-socials-block{
+	margin-bottom: 20px;
+	@include respond-to(medium-screens) {		
+		display: none;	
+	}
 }

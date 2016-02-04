@@ -2,7 +2,7 @@ var $ = require('jquery');
 
 function test() {
 
-	var textTest = 'module js connect!'
+	var textTest = 'module test js connect!'
 	
 	var init = function() {
 			_setUpListners();

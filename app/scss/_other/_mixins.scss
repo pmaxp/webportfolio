@@ -1,23 +1,53 @@
 //@include clearfix;
 
-@mixin clearfix{
-  &:before, &:after{
-    content: "";
-    display: table;
+$small: 320px;
+$middle: 768px;
+$large: 1100px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $small) { @content; }
   }
-  &:after{
-    clear: both;
-  }   
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $middle) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $large) { @content; }
+  }
+}
+  // @include respond-to(handhelds) { }
+  // @include respond-to(medium-screens) { }
+  // @include respond-to(wide-screens) { }
+@mixin inBlockMiddle{
+   display: inline-block;
+   vertical-align: middle;
+}
+
+@mixin clearfix{
+	&:before, &:after{
+		content: "";
+		display: table;
+	}
+	&:after{
+		clear: both;
+	}   
+}
+
+@mixin iconContact($cont){
+	display: inline-block;
+	margin: 0 auto;
+  vertical-align: middle;
+	@include my-sprite($cont);
 }
 
 @mixin myFont($fonts){
   font-family: $fonts, arial, helvetica;
 }
 
-@mixin angle_45 {
-  -moz-transform: rotate(45deg);  /* Firefox */
-  -o-transform: rotate(45deg);  /* Opera */
-  -webkit-transform: rotate(45deg);  /* Safari y Chrome */
+@mixin rotateA($angle) {
+  -moz-transform: rotate($angle);  /* Firefox */
+  -o-transform: rotate($angle);  /* Opera */
+  -webkit-transform: rotate($angle);  /* Safari y Chrome */
   filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476); /* IE */
 }
 @mixin transition($transition){
@@ -41,6 +71,9 @@
   content: '';
   height: 2px;
   background: $colorBorderGradient;
+  @include respond-to(wide-screens) {
+    height: 4px;
+  }
 }
 
 @mixin sprite-image-path($sprite) {

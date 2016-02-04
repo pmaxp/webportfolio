@@ -3,27 +3,61 @@
 	background: $colorBackMain;
 	position: relative;
 	margin-bottom: 17px;
+	z-index: 100;	
 	&__wrapper{
 		margin: 0 auto;
 		width: 87.1875%;
 		height: 100%;
+		max-width: 1200px;
 		padding: 10px 0;
 	}
 	&-socials-block{
 		display: none;
+		
 	}
 	&:after{
 		@include lineGradient;
 	}
-}
-.socials__item, .socials__list{
-	display: inline-block;
+	@include respond-to(medium-screens) {
+		height: 115px;
+		margin-bottom: 38px;
+		&__wrapper{
+			width: 93.5875%;
+		}
+		&-socials-block{
+			display: inline-block;
+			vertical-align: middle;
+			width: 68%;	
+			.socials__list{
+				text-align: right;
+				line-height: 0;
+			}
+			.socials__item{
+				width: auto;
+				margin-left: 15px;				
+			}
+		}
+	}
+	@include respond-to(wide-screens) { 
+		height: 119px;
+		&-socials-block{
+			.socials__list{
+				display: inline-block;
+				vertical-align: middle;
+				width: 100%
+			}
+			.socials__item{
+				width: auto;
+				margin-left: 15px;				
+			}
+		}
+	}
 }
 
 
 .header_logo{
 	height: 100%;
-    display: inline-block;
+    display: inline-block;    
 	&:before{
 		content: '';
 		height: 100%;
@@ -35,21 +69,34 @@
 		max-height: 100%;
     	max-width: 100%;
     	display: inline-block;
-		vertical-align: middle;	
+		vertical-align: middle;
+		@include respond-to(medium-screens) {
+			max-height: 48%;	
+		}		
+	}
+	@include respond-to(wide-screens) { 
+		width: 32%;
 	}
 }
-.header_meny{
+.header_meny{	
 	display: inline-block;
 	float: right;
-	height: 100%;	
-	cursor: pointer;
-	&:before{
+	height: 100%;
+	position: relative;
+		&:before{
 		content: '';
 		height: 100%;
 		width: 0;
 		display: inline-block;
 		vertical-align: middle;	
 	}
+}
+.show_meny, .close_meny{
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+	background: $colorBackMain;
+	z-index: 111;
 	&-list{
 		width: 25px;
 		display: inline-block;
@@ -66,5 +113,26 @@
 	}
 	&:hover &-item {
 		background: $colorBackAccent;
+	}
+	@include respond-to(wide-screens) { 
+		display: none;
+	}
+}
+.close_meny{
+	@include clearfix;
+	display: none;
+	margin-left: -27px;
+	&-list{
+		width: 28px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	&-item{
+		@include rotateA(-45deg);
+		margin-bottom: 0;
+		&:last-child{
+			@include rotateA(45deg);
+			margin-top: -5px;			
+		}
 	}
 }

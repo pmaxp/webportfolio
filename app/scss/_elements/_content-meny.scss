@@ -1,34 +1,114 @@
 .content-menu{
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: -13px;
-  display: none;
+	display: inline-block;
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+	top: -700px;		
+	@include transition( all 0.6s ease-out);
+	.menu-inner{
+		box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+	}	
+	@include respond-to(medium-screens) {
+		width: 238px;
+		position: absolute;
+		right: 0;
+		z-index: 100;
+    	.menu-inner{
+			border-radius: 4px;
+			overflow: hidden;
+		}
+		&:before{	
+			content: '';
+			display: block;
+			position: absolute;	
+			height: 25px;
+			width: 25px;
+			top: -9px;
+			right: 33px;
+			background: $colorBackAccent;
+			@include rotateA(45deg);
+		}
+	}
+	@include respond-to(wide-screens) {
+		position: relative;
+		width: 250px;
+		display: inline-block;
+		top: 0;
+		margin-bottom: 20px;
+		.menu-inner{
+			box-shadow: none;
+		}
+		&:before{			
+			display: none;			
+		}
+	}
+}
+.menuactiv{
+	top: -15px;
+	@include respond-to(medium-screens) {
+		top: -66px;
+	}
 }
 
 .menu-item{
-  text-align: center;
-  &:first-child .menu-link{
-    border-top: 0;
-  }
+	text-align: center;
+	&:first-child .menu-link{
+		border-top: 0;
+	}
+	@include respond-to(wide-screens) {
+		text-align: left;
+		position: relative;
+		&:before{
+			position: absolute;
+			top: -2px;
+			left: 13px;
+			content: '';
+			display: block;
+			width: 90%;
+			height: 2px;
+			margin: 0 auto;
+			background:$colorBackAccent;
+		}
+		&:first-child{
+			&:before{
+				display: none;
+			}
+		}
+	}	
 }
 .menu-link{
-  padding: 10px 5px;
-  display: block;
-  font-size: 1.5rem;
-  text-decoration: none;
-  color: $colorFontMain;
-  border-top: 1px solid $colorBackAccent;
-  background: $colorBackMain;
-  &:hover{
-    color: $colorBackAccent;
-  }
-  &-active{
-    background: $colorBackAccent;
-    color: $colorFontAccent;
-    &:hover{
-      color: $colorFontMain;
-    }
-  }
-
+	padding: 10px 5px;
+	display: block;
+	font-size: 1.5rem;
+	text-decoration: none;
+	color: $colorFontMain;
+	border-top: 1px solid $colorBackAccent;
+	background: $colorBackMain;
+	&:hover{
+		color: $colorBackAccent;
+	}
+	@include respond-to(wide-screens) {
+		padding: 17px 26px;
+		font-size: 1.4rem;
+		border: none;
+		color: $colorFontMain * 1.45;		
+	}
+	&-active{
+	background: $colorBackAccent;
+	color: $colorFontAccent;
+		&:hover{
+			color: $colorFontMain;
+		}
+	}
+}
+.fon-mobile{
+	min-width: 100%;
+	min-height: 100%;
+	position: absolute;
+	top:-17px;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: none;
+	@include respond-to(medium-screens) {
+		top: -37px;
+	}
 }

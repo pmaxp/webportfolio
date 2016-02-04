@@ -23,6 +23,10 @@
 				};
 			each value, key in contacts
 				li.content-sidebar-item
-					a(class='icon-#{value.clas}' href=value.href).content-sidebar-contact= value.val
+					a(class='link-#{value.clas}' href=value.href).content-sidebar-link
+						.content-sidebar-item-inner
+							span.content-sidebar-icon
+								span(class='icon-#{value.clas}')
+							span.content-sidebar-text= value.val
 
 		+socials('sidebar')

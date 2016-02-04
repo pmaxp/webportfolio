@@ -5,34 +5,85 @@
 	text-align: center;
 	margin-bottom: 20px;
 	color: $colorFontMain;
+	@include respond-to(medium-screens) {
+		text-align: left;		
+	}	
 }
+
 .content-section-title{
 	font-size: 1.5rem;
 	margin: 0 0 26px;
 	color: $colorBackAccent;
+	@include respond-to(medium-screens) {
+		font-size: 1.7193rem;
+		display: inline-block;
+		padding: 16px 23px;
+		margin: 0 0 26px -10px;
+		text-align: left;
+		border-bottom: 2px solid $colorBackAccent;
+	}
 }
 
 $fotoSize: 130px;
 
 .content-section-foto{
-	margin: 0 auto;
-	height: $fotoSize;
-	width: $fotoSize;
-	border: 3px solid $colorBackAccent;
-	border-radius: 50%;
-	overflow: hidden;
-	background: $colorBackAccent;
-	margin-bottom: 29px;
+	display: inline-block;
+	&-inner{
+		display: inline-block;
+		height: $fotoSize;
+		width: $fotoSize;
+		border: 3px solid $colorBackAccent;
+		border-radius: 50%;
+		overflow: hidden;
+		background: $colorBackAccent;
+		margin-bottom: 29px;
+	}
+	@include respond-to(medium-screens) {
+		width: 35%;
+		height: 100%;
+		text-align: center;
+		&-inner{
+			height: 200px;
+			width: 200px;
+			margin: 0 auto;		
+			vertical-align: middle;
+		}
+	}
+	@include respond-to(wide-screens) {
+		&-inner{
+			height: 145px;
+			width: 145px;	
+			vertical-align: top;
+		}
+	}
 }
 .content-section-foto-img{
 	max-width: 100%;
-	max-height: 100%;
+	min-height: 100%;
 }
 .content-section-information{
 	margin-bottom: 20px;
+	@include respond-to(medium-screens) {		
+		display: inline-block;
+		vertical-align: middle;
+		width: 65%;
+	}
+	@include respond-to(wide-screens) {		
+		vertical-align: top;	
+	}
+}
+.content-section-information-list{
+	@include respond-to(medium-screens) {
+		// margin-left: 7%;
+		width: 415px;
+		margin: 0 auto;
+	}
 }
 .content-section-information-item{
 	margin-bottom: 31px;
+	@include respond-to(medium-screens) {		
+		margin-bottom: 10px;
+	}
 	&:last-child{
 		margin-bottom: 0;
 	}
@@ -41,16 +92,36 @@ $fotoSize: 130px;
 	font-size: 1.25rem;
 	display: block;
 	@include myFont(firasans-medium);
-	margin-bottom: 4px
+	margin-bottom: 4px;
+	margin-right: 14px;	
 }
 .information-value{
 	font-size: 1.2rem;
 	display: block;
 	@include myFont(firasans-regular);	
+	@include respond-to(medium-screens) {		
+		// width: 43%;
+	}
+}
+.information-value, .information-option{
+	@include respond-to(medium-screens) {		
+		display: inline-block;
+		vertical-align: top;
+	}
+	@include respond-to(wide-screens) {		
+		font-size: 1rem;
+	}
 }
 .skills-list{
 	width: 80%;
 	margin: 0 auto;
+	@include respond-to(medium-screens) {		
+		display: inline-block;
+		vertical-align: top;
+		width: 40%;
+		margin: 0;
+		margin-top: -7px;
+	}
 }
 .skills-item{
 	font-size: 0.9rem;
@@ -67,28 +138,74 @@ $fotoSize: 130px;
 
 .content-section-work-icon{	
 	@include my-sprite($work);
-	margin: 0 auto;
-	margin-bottom: 10px;
+	@include inBlockMiddle;	
 }
 .content-section-work-block, .content-section-education-block{
 	margin-bottom: 10px;
+	@include respond-to(medium-screens) {		
+		margin-bottom: 0;	
+	}
 }
 .content-section-education-option, .content-section-work-option{
 	margin-bottom: 10px;
 	font-size: 1.05rem;
+	@include respond-to(medium-screens) {		
+		margin-bottom: 0;	
+	}
 }
 .content-section-education-value, .content-section-work-value{
 	font-size: 0.9rem;
 	@include myFont(firasans-light);
 }
+.content-section-list{
+	line-height: 1.5;
+}
+.content-section-item{
+	margin-bottom: 10px;
+	@include respond-to(medium-screens) {		
+		margin-bottom: 10px;	
+	}
+}
+.content-section-icon-wrapper{
+	margin-bottom: 10px;
+	height: 40px;
+	text-align: center;
+	&:before{
+		content: '';
+		height: 100%;
+		@include inBlockMiddle;
+	}
+	@include respond-to(medium-screens) {		
+		@include inBlockMiddle;
+		margin-bottom: 0;
+		height: 100%;
+		margin-left: 10%;
+		width: 8%;
+		&:before{
+			height: 100%;
+			@include inBlockMiddle;
+		}
+	}
+	@include respond-to(wide-screens) {		
+		margin-left: 5%;
+	}
+}
+.content-section-wrapper-text{
+	@include respond-to(medium-screens) {		
+		@include inBlockMiddle;
+		width: 80%;
+		margin-left: 2%;
+	}
+	@include respond-to(wide-screens) {		
+		margin-left: 4%;
+	}
+}
 .content-section-courses-icon{
 	@include my-sprite($courses);
-	margin: 0 auto;
-	margin-bottom: 10px;
+	@include inBlockMiddle;
 }
 
 .content-section-education-icon{
 	@include my-sprite($education);
-	margin: 2px auto;
-	margin-bottom: 10px;
+	@include inBlockMiddle;
 }

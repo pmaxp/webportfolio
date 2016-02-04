@@ -2,44 +2,47 @@
 	.content-content-inner
 		section.content-section
 			h2.content-section-title Основная информация
-			.content-section-foto
-				img(src="img/moe_foto.jpg" title='Мое фото' alt='My Foto').content-section-foto-img
-			.content-section-information
-				ul.content-section-information-list
-					-
-						var info = {
-							'Меня зовут:':'Попов Максим Павлович',
-							'Мой возраст:':'26 лет',
-							'Мой город:':'Москва, Россия',
-							'Моя специлизация:':'FRONTEND разработчик',
-							'Ключевые навыки:':''
-						};
-					each value, key in info
-						if key !== 'Ключевые навыки:'
-							li.content-section-information-item
-								span.information-option= key
-								span.information-value= value
-						else
-							li.content-section-information-item
-								span.information-option= key
-								+skills()
+			.content-section-block
+				.content-section-foto
+					.content-section-foto-inner
+						img(src="img/moe_foto.jpg" title='Мое фото' alt='My Foto').content-section-foto-img
+				.content-section-information
+					ul.content-section-information-list
+						-
+							var info = {
+								'Меня зовут:':'Попов Максим Павлович',
+								'Мой возраст:':'26 лет',
+								'Мой город:':'Москва, Россия',
+								'Моя специлизация:':'FRONTEND разработчик',
+								'Ключевые навыки:':''
+							};
+						each value, key in info
+							if key !== 'Ключевые навыки:'
+								li.content-section-information-item
+									span.information-option= key
+									span.information-value= value
+							else
+								li.content-section-information-item
+									span.information-option= key
+									+skills()
 		section.content-section
 			h2.content-section-title Опыт работы
-			ul.content-section-work-list
+			ul.content-section-list
 				-
 					var works = {
 						'ООО «Центр Дизайна транспортный среды» - Дизайнер':'Май 2006 - Сентябрь 2009',
 						'ООО «Аква-Коф» - Ведущий-Дизайнер':'Октябрь 2009 - Сентябрь 2010'
 					};
 				each value, key in works
-					li.content-section-work-item
-						.content-section-work-icon
-						.content-section-work-block
+					li.content-section-item
+						.content-section-icon-wrapper
+							.content-section-work-icon
+						.content-section-wrapper-text
 							.content-section-work-option= key
 							.content-section-work-value= value
 		section.content-section
 			h2.content-section-title Образование
-			ul.content-section-education-list
+			ul.content-section-list
 				-
 					var educations = {
 						'Среднее специальное "Математический Колледж"':'Сентябрь 2005 - Август 2008',
@@ -48,14 +51,16 @@
 					};
 				each value, key in educations
 					if key !== 'Курсы Loftschool.ru'
-						li.content-section-education-item
-							.content-section-education-icon
-							.content-section-education-block
+						li.content-section-item
+							.content-section-icon-wrapper
+								.content-section-education-icon
+							.content-section-wrapper-text
 								.content-section-education-option= key
 								.content-section-education-value= value
 					else
-						li.content-section-education-item
-							.content-section-courses-icon
-							.content-section-education-block
+						li.content-section-item
+							.content-section-icon-wrapper
+								.content-section-courses-icon
+							.content-section-wrapper-text
 								.content-section-education-option= key
 								.content-section-education-value= value		

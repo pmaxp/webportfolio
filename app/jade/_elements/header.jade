@@ -3,7 +3,12 @@ header.header
 		a(href='http://p-max-p.ru/').header_logo
 			img( src='./img/max.png').header_logo__img
 		.header_meny
-			ul.header_meny-list
-				- for (var i = 0; i < 3; i++)
-					li.header_meny-item
+			.show_meny
+				ul.show_meny-list
+					- for (var i = 0; i < 3; i++)
+						li.show_meny-item
+			.close_meny
+				ul.close_meny-list
+					- for (var i = 0; i < 2; i++)
+						li.close_meny-item
 		+socials('header')
