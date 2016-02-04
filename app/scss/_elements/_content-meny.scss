@@ -25,7 +25,8 @@
 			width: 25px;
 			top: -9px;
 			right: 33px;
-			background: $colorBackAccent;
+			background: #d7d9e0;
+			background: linear-gradient(135deg, #fff 0%,#eff3f7 45%,#eff3f7 100%);
 			@include rotateA(45deg);
 		}
 	}
@@ -34,6 +35,7 @@
 		width: 250px;
 		display: inline-block;
 		top: 0;
+		right: 0;
 		margin-bottom: 20px;
 		.menu-inner{
 			box-shadow: none;
@@ -43,6 +45,13 @@
 		}
 	}
 }
+.activebefore{
+	&:before{
+		background: $colorBackAccent;
+	}
+}
+
+
 .menuactiv{
 	top: -15px;
 	@include respond-to(medium-screens) {
@@ -58,50 +67,64 @@
 	@include respond-to(wide-screens) {
 		text-align: left;
 		position: relative;
-		&:before{
-			position: absolute;
-			top: -2px;
-			left: 13px;
-			content: '';
-			display: block;
-			width: 90%;
-			height: 2px;
-			margin: 0 auto;
-			background:$colorBackAccent;
-		}
 		&:first-child{
-			&:before{
-				display: none;
-			}
+
 		}
 	}	
 }
-.menu-link{
-	padding: 10px 5px;
-	display: block;
-	font-size: 1.5rem;
-	text-decoration: none;
-	color: $colorFontMain;
-	border-top: 1px solid $colorBackAccent;
+.menu-list {
 	background: $colorBackMain;
-	&:hover{
-		color: $colorBackAccent;
+}
+.menu-item {
+	.menu-link {
+		padding: 10px 5px;
+		display: block;
+		font-size: 1.5rem;
+		text-decoration: none;
+		color: $colorFontMain * 1.45;
+		border-top: 1px solid $colorBackAccent;
+
+		&:hover {
+			color: $colorBackAccent * 0.5;
+		}
+		@include respond-to(wide-screens) {
+			padding: 19px 0 19px 17px;
+			width: 90%;
+			margin: 0 auto;
+			font-size: 1.3rem;
+			border-top: 2px solid #3ba8c0;
+
+		}
 	}
-	@include respond-to(wide-screens) {
-		padding: 17px 26px;
-		font-size: 1.4rem;
-		border: none;
-		color: $colorFontMain * 1.45;		
-	}
-	&-active{
-	background: $colorBackAccent;
-	color: $colorFontAccent;
-		&:hover{
-			color: $colorFontMain;
+	&:first-child {
+		.menu-link {
+			border: none;
 		}
 	}
 }
+.menu-item-active{
+	background: $colorBackAccent;
+	.menu-link {
+		color: $colorFontAccent;
+		display: block;
+	}
+	&:hover {
+		background: $colorBackAccent * 0.9;
+		.menu-link {
+			color: $colorFontAccent;
+		}
+	}
+	@include respond-to(wide-screens) {
+		.menu-link {
+			padding: 19px 0 19px 17px;
+			margin-bottom: -2px;
+		}
+	}
+
+}
+
 .fon-mobile{
+	z-index: 1;
 	min-width: 100%;
 	min-height: 100%;
 	position: absolute;
@@ -110,5 +133,6 @@
 	display: none;
 	@include respond-to(medium-screens) {
 		top: -37px;
+		z-index: 99;
 	}
 }

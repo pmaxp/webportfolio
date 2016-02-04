@@ -108,11 +108,11 @@ html, body{
 	display: block;
 }
 
-$colorBackMain: #eff3f7;
-$colorFontMain: #5a636b;
-$colorFontMeny: #8196ac;
-$colorBackAccent: #2fa5bc;
-$colorFontAccent: #fff;
+$colorBackMain: rgba(239, 243, 247, 1);
+$colorFontMain: rgba(90, 99, 107, 1);
+$colorFontMeny: rgba(129, 150, 172, 1);
+$colorBackAccent: rgba(47, 165, 188, 1);
+$colorFontAccent: rgba(254, 254, 255, 1);
 $colorBorderGradient: linear-gradient(to left, #f2f6fa 0%, #1c667a 50%, #f2f6fa 100%);
 $colorSkillsGradient: linear-gradient(to bottom, #3ba8c0 0%,#3ba8c0 50%,#2e8ca2 51%,#2e8ca2 100%);
 $colorIconMeny: #58697a;

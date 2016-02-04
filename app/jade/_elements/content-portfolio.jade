@@ -1,0 +1,25 @@
+.content-content
+	.content-content-inner
+		section.content-section
+			h2.content-section-title Мои работы
+			ul.content-section-list
+				-
+					var works = {
+						'site': {
+						name:'Сайт портфолио',
+						info:'Информация о проекте',
+						namelink:'www.p-max-p.ru',
+						href:'http://p-max-p.ru',
+						img:'./img/max.png'
+						}
+					};
+				each value, key in works
+					li.content-portfolio-item
+						a(href=value.href).content-portfolio-link
+							.content-portfolio-hover
+								span.content-portfolio-name= value.name
+							img(src=value.img).content-portfolio-img
+						a(href=value.href).content-portfolio-namelink= value.namelink
+						p.content-portfolio-info= value.info
+
+

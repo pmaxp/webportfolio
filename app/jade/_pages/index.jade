@@ -8,8 +8,8 @@ block content
 
 	.content
 		.content-inner
-			include ../_elements/content-meny			
-			include ../_elements/content-content
+			+menus('index.html', 'activebefore')
+			include ../_elements/content-index
 			include ../_elements/content-sidebar					
 
 	include ../_elements/footer

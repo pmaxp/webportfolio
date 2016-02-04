@@ -13,21 +13,24 @@ mixin socials(pos)
 					a(target="_blank" href=value class='socials__link socials__link_#{key}')
 						span.social-text= key
 
-mixin menus(active)
-	ul.menu-list
-		-
-			var menus = {
-			'Обо мне': '#my',
-			'Мои работы': '#portfolio',
-			'Связаться со мной': '#connect'
-			};
-		each value, key in menus
-			if value !== active
-				li.menu-item
-					a(href=value).menu-link= key
-			else
-				li.menu-item
-					a(href=value).menu-link-active.menu-link= key	
+mixin menus(active, before)
+	div(class='#{before}').content-menu
+		.menu-inner
+			ul.menu-list
+				-
+					var menus = {
+					'Обо мне': 'index.html',
+					'Мои работы': 'portfolio.html',
+					'Связаться со мной': 'contact.html'
+					};
+				each value, key in menus
+					if value !== active
+						li.menu-item
+							a(href=value).menu-link= key
+					else
+						li.menu-item.menu-item-active
+							a(href=value).menu-link= key
+
 
 mixin skills()
 	ul.skills-list

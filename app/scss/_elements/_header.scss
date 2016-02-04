@@ -1,138 +1,148 @@
-.header{
+.header {
 	height: 55px;
 	background: $colorBackMain;
 	position: relative;
 	margin-bottom: 17px;
-	z-index: 100;	
-	&__wrapper{
+	z-index: 100;
+	&__wrapper {
 		margin: 0 auto;
 		width: 87.1875%;
 		height: 100%;
 		max-width: 1200px;
 		padding: 10px 0;
 	}
-	&-socials-block{
+	&-socials-block {
 		display: none;
-		
+
 	}
-	&:after{
+	&:after {
 		@include lineGradient;
 	}
 	@include respond-to(medium-screens) {
 		height: 115px;
 		margin-bottom: 38px;
-		&__wrapper{
+		&__wrapper {
 			width: 93.5875%;
 		}
-		&-socials-block{
+		&-socials-block {
 			display: inline-block;
 			vertical-align: middle;
-			width: 68%;	
-			.socials__list{
+			width: 68%;
+			.socials__list {
 				text-align: right;
 				line-height: 0;
 			}
-			.socials__item{
+			.socials__item {
 				width: auto;
-				margin-left: 15px;				
+				margin-left: 15px;
+				&:first-child {
+					margin-left: 0;
+				}
 			}
 		}
 	}
-	@include respond-to(wide-screens) { 
+	@include respond-to(wide-screens) {
 		height: 119px;
-		&-socials-block{
-			.socials__list{
+		&-socials-block {
+			float: right;
+			height: 100%;
+			width: auto;
+			&:before {
+				content: '';
+				display: inline-block;
+				vertical-align: middle;
+				height: 100%;
+			}
+			.socials__list {
 				display: inline-block;
 				vertical-align: middle;
 				width: 100%
 			}
-			.socials__item{
-				width: auto;
-				margin-left: 15px;				
-			}
 		}
 	}
 }
 
-
-.header_logo{
+.header_logo {
 	height: 100%;
-    display: inline-block;    
-	&:before{
+	display: inline-block;
+	&:before {
 		content: '';
 		height: 100%;
 		width: 0;
 		display: inline-block;
-		vertical-align: middle;	
+		vertical-align: middle;
 	}
-	&__img{
+	&__img {
 		max-height: 100%;
-    	max-width: 100%;
-    	display: inline-block;
+		max-width: 100%;
+		display: inline-block;
 		vertical-align: middle;
 		@include respond-to(medium-screens) {
-			max-height: 48%;	
-		}		
+			max-height: 48%;
+		}
 	}
-	@include respond-to(wide-screens) { 
-		width: 32%;
+	@include respond-to(wide-screens) {
+		width: auto;
 	}
 }
-.header_meny{	
+
+.header_meny {
 	display: inline-block;
 	float: right;
 	height: 100%;
 	position: relative;
-		&:before{
+	&:before {
 		content: '';
 		height: 100%;
 		width: 0;
 		display: inline-block;
-		vertical-align: middle;	
+		vertical-align: middle;
 	}
 }
-.show_meny, .close_meny{
+
+.show_meny, .close_meny {
 	display: inline-block;
 	vertical-align: middle;
 	cursor: pointer;
 	background: $colorBackMain;
 	z-index: 111;
-	&-list{
+	&-list {
 		width: 25px;
 		display: inline-block;
 		vertical-align: middle;
 	}
-	&-item{
+	&-item {
 		height: 5px;
 		margin-bottom: 3px;
 		background: $colorIconMeny;
 		border-radius: 2px;
-		&:last-child{
+		&:last-child {
 			margin-bottom: 0;
 		}
 	}
 	&:hover &-item {
 		background: $colorBackAccent;
 	}
-	@include respond-to(wide-screens) { 
+	@include respond-to(wide-screens) {
 		display: none;
 	}
 }
-.close_meny{
+
+.close_meny {
 	@include clearfix;
 	display: none;
 	margin-left: -27px;
-	&-list{
+	&-list {
 		width: 28px;
 		display: inline-block;
 		vertical-align: middle;
 	}
-	&-item{
+	&-item {
 		@include rotateA(-45deg);
 		margin-bottom: 0;
-		&:last-child{
+		&:last-child {
 			@include rotateA(45deg);
-			margin-top: -5px;			
+			margin-top: -5px;
 		}
 	}
 }

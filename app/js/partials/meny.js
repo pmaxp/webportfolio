@@ -23,11 +23,14 @@ function meny() {
 		console.log(widthHtml);
 		widthHtml = $('html').width();
 		console.log(widthHtml);
+		if ( widthHtml > '1100'){
+			_hideMeny();
+		}
 		return widthHtml;
 	};
 
 	var _showMeny = function(){
-		if ( widthHtml <= '1082'){
+		if ( widthHtml <= '1100'){
 			menyBlock.addClass('menuactiv');
 			menyClose.css('display','inline-block')
 			fonM.fadeIn(600);

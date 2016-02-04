@@ -1,0 +1,16 @@
+extends ../main
+
+block title
+	| Мое портфолио
+
+block content
+	include ../_elements/header
+
+	.content
+		.content-inner
+			+menus('portfolio.html','')
+			include ../_elements/content-portfolio
+			include ../_elements/content-sidebar
+
+	include ../_elements/footer
+

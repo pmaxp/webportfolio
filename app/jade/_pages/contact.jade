@@ -1,0 +1,15 @@
+extends ../main
+
+block title
+  | Связаться со мной
+
+block content
+  include ../_elements/header
+
+  .content
+    .content-inner
+      +menus('contact.html','')
+      include ../_elements/content-contact
+      include ../_elements/content-sidebar
+
+  include ../_elements/footer

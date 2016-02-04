@@ -23,6 +23,15 @@ $large: 1100px;
    vertical-align: middle;
 }
 
+@mixin spacer{
+  &:before{
+    height: 100%;
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
 @mixin clearfix{
 	&:before, &:after{
 		content: "";

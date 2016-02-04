@@ -1,0 +1,49 @@
+.content-section-inner {
+	width: 90%;
+}
+.content-portfolio-item{
+	width: 90%;
+	margin: 0 auto;
+	@include clearfix;
+}
+.content-portfolio-list{
+	@include clearfix;
+}
+.content-portfolio-link{
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	border: 2px solid $colorBackAccent * 1.45;
+	border-radius: 4px;
+	background: $colorFontAccent;
+	@include clearfix;
+}
+.content-portfolio-hover{
+	@include spacer;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: rgba($colorBackAccent, 0.7);
+	text-align: center;
+	font-size: 0;
+	opacity: 0;
+	@include transition( all 0.3s ease-out);
+
+	&:hover{
+		font-size: 1rem;
+		opacity: 1;
+	}
+}
+.content-portfolio-img{
+	height: 100%;
+	width: 100%;
+}
+.content-portfolio-name{
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 4px;
+	color: $colorFontAccent;
+	border: 2px solid $colorFontAccent;
+	padding: 2px 8px;
+}
