@@ -1,5 +1,21 @@
 .content-content
 	.content-content-inner
-		section.content-section
-			h2.content-section-title Связаться
-			.content-section-block
+		form.content-section
+			h3.form-contact-title У вас интересный проект? Напишите мне
+			ul.form-contact-list
+				li.form-contact-item
+					.form-contact-title Имя
+					input(name='name' type='text' maxleght='35' placeholder='Как к Вам обращаться' qtip-content="Вы не ввели имя" qtip-position="left").form-contact-input.form-contact-input__name
+				li.form-contact-item
+					.form-contact-title Email
+					input(name='email' type='text' maxleght='35' placeholder='Куда мне писать' qtip-content="Вы не ввели email" qtip-position="right").form-contact-input.form-contact-input__email		
+				li.form-contact-item
+					.form-contact-title Сообщение
+					textarea(name='comment' type='text' maxleght='450' placeholder='Что вы хотите от меня' qtip-content="Кратко в чем суть" qtip-position="left").form-contact-input.form-contact-input__comment
+				li.form-contact-item
+					.form-contact-title Ckapcha
+					textarea(name='comment' type='text' maxleght='450' placeholder='Что вы хотите от меня' qtip-content="Кратко в чем суть" qtip-position="left").form-contact-input.form-contact-input__name
+				li.form-contact-item
+					button(type="submit").form-contact-button.form-contact-button__submit Отправить
+					button(type="reset").form-contact-button.form-contact-button__reset Очистить
+							

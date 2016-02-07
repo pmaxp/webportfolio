@@ -3,14 +3,16 @@
 }
 .content-portfolio-item{
 	width: 90%;
-	max-width: 300px;
+	max-width: 300px;	
+	vertical-align: top;
 	margin: 0 auto;
 	display: inline-block;
 	@include clearfix;
 	padding: 10px 10px 0 10px;
-}
-.content-portfolio-list{
-	@include clearfix;
+	@include respond-to(medium-screens) {
+		min-width: 200px;
+		width: 30%;
+	}
 }
 .content-portfolio-link{
 	display: inline-block;
@@ -21,6 +23,10 @@
 	border-radius: 4px;
 	background: $colorFontAccent;
 	@include clearfix;
+}
+.content-portfolio-list{
+	line-height: 1.5;
+	text-align: center;
 }
 .content-portfolio-hover{
 	@include spacer;
@@ -37,6 +43,9 @@
 		font-size: 1rem;
 		opacity: 1;
 	}
+}
+.content-portfolio-info{	
+	text-align: left;
 }
 .content-portfolio-img{
 	height: 100%;

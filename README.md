@@ -8,8 +8,8 @@
 If you want to local install our app, you need make following commands in terminal:
 
 ```sh
-$ git clone https://github.com/pmaxp/shablon.git
-$ cd shablon
+$ git clone https://github.com/pmaxp/webportfolio.git
+$ cd webportfolio
 $ npm i
 $ bower i
 $ gulp
