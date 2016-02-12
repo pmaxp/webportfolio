@@ -3,6 +3,7 @@
 // @import "_vendor/jquery.ui.spinner";
 // @import "_vendor/jquery.ui.slider";
 /* --------- other --------- */
+@import "_other/_qtip2";
 @import "_other/_mixins";
 @import "_other/_sprite";
 /* --------- base --------- */
@@ -14,4 +15,5 @@
 @import "_elements/_content-index";
 @import "_elements/_content-sidebar";
 @import "_elements/_content-portfolio";
+@import "_elements/_content-contact";
 @import "_elements/_footer";

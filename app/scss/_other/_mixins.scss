@@ -50,7 +50,7 @@ $large: 1100px;
 }
 
 @mixin myFont($fonts){
-  font-family: $fonts, arial, helvetica;
+  font-family: $fonts, sanserif, arial, helvetica;
 }
 
 @mixin rotateA($angle) {
@@ -95,4 +95,16 @@ $large: 1100px;
   @include sprite-position($sprite);
   @include sprite-width($sprite);
   @include sprite-height($sprite);
+}
+
+@mixin placeColor($color) {
+  &::-webkit-input-placeholder {color:$color;}
+  &::-moz-placeholder          {color:$color;}/* Firefox 19+ */
+  &:-moz-placeholder           {color:$color;}/* Firefox 18- */
+  &:-ms-input-placeholder      {color:$color;}
+}
+
+@mixin borderInput {
+  border: 1px solid $colorBackAccent * 1.45;
+  border-radius: 5px;
 }

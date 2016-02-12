@@ -7,3 +7,5 @@ node_modules
 .DS_Store
 app/scss/_other/_sprite.scss
 
+
+/vendor/

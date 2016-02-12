@@ -16,6 +16,7 @@ var connectPHP = require('gulp-connect-php');
 //-----------Paths------------//
 var path = {
     app: {
+    	htaccess: './.htaccess',
       jade: './app/jade/_pages/*.jade',
       scss: './app/scss/main.scss',
       img: ['./app/img/**/*.+(png|jpg|jpeg|gif|svg)', '!./app/img/sprite/**/*.+(png|jpg|jpeg|gif|svg)'],
@@ -25,6 +26,7 @@ var path = {
       js: './app/js/main.js'
     },
     dist: {
+    	htaccess: './dist/',
       html: './dist/',
       css: './dist/css/',
       img: './dist/img/',
@@ -33,6 +35,7 @@ var path = {
       js: './dist/js/'
     },
     watch: {
+    	htaccess: '.htaccess',
       jade: './app/jade/**/*.jade',
       scss: './app/scss/**/*.scss',
       img: ['./app/img/**/*.+(png|jpg|jpeg|gif|svg)', '!./app/img/sprite/**/*.+(png|jpg|jpeg|gif|svg)'],
@@ -130,12 +133,19 @@ gulp.task('js', function () {
 });
 
 //-----------Copy-PHP------------//
-// gulp.task('copy', function () {
+// gulp.task('copy-php', function () {
 //     return gulp.src(path.watch.php)
 //         .pipe(plumber())
 //         .pipe(gulp.dest(path.dist.php))
 //         .pipe(reload({stream: true}));
 // });
+//-----------Copy------------//
+gulp.task('copy', function () {
+    return gulp.src(path.app.htaccess)
+        .pipe(plumber())
+        .pipe(gulp.dest(path.dist.htaccess))
+        .pipe(reload({stream: true}));
+});
 //-----------Load PHP------------//
 // gulp.task('php', function(){
 //     connectPHP.server({ base: './dist', keepalive:true, hostname: 'localhost', port:8080});
@@ -158,7 +168,7 @@ gulp.task('watch', function () {
   gulp.watch(path.watch.img, ['img']);
   gulp.watch(path.watch.sprite, ['sprite']);
   gulp.watch(path.watch.js, ['js']);
-  // gulp.watch(path.watch.php, ['copy']);
+  gulp.watch(path.watch.htaccess, ['copy']);
 });
 
 gulp.task('clean', del.bind(null, 'dist'));
@@ -169,7 +179,7 @@ gulp.task('build', [
   'fonts',
   'img',
   'sprite',
-  // 'copy',
+  'copy',
   'js'
 ]);
 

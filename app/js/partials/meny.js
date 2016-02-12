@@ -1,4 +1,4 @@
-var $ = require('jquery');
+;var $ = require('jquery');
 
 function meny() {
 
@@ -25,9 +25,22 @@ function meny() {
 		console.log(widthHtml);
 		if ( widthHtml > '1100'){
 			_hideMeny();
-		}
+		};
+		var mainPosition = $('.form-contact-input');
+
+		if ( widthHtml < '767'){
+				
+			console.log(mainPosition);
+		};
 		return widthHtml;
 	};
+
+	var changeQtipPosition= function(){
+
+
+
+	};
+
 
 	var _showMeny = function(){
 		if ( widthHtml <= '1100'){
@@ -48,7 +61,6 @@ function meny() {
 		console.log(widthHtml);				
 	};
 	
-
 	init();
 
 };

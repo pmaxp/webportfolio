@@ -5,6 +5,8 @@
   ],
   "devDependencies": {
     "modernizer": "~2.8.2",
-    "_normalize.scss": "git://github.com/jjt/_normalize.scss.git#~2.1.3"
+    "_normalize.scss": "git://github.com/jjt/_normalize.scss.git#~2.1.3",
+    "jquery.qtip2": "https://raw.githubusercontent.com/concerto/bandshell/master/lib/bandshell/application/public/stylesheets/sass/components/jquery.qtip2.scss",
+    "_jquery.qtip": "https://github.com/archfirst/bullsfirst-jquery-backbone/blob/master/src/sass/vendor/_jquery.qtip.scss"
   }
 }

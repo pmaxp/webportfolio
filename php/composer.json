@@ -1,0 +1,13 @@
+{
+    "name": "m.popov/webportfolio",
+    "authors": [
+        {
+            "name": "Popov Maxim",
+            "email": "popovmaxp@gmail.com"
+        }
+    ],
+    "require": {
+        "google/recaptcha": "^1.1",
+        "phpmailer/phpmailer": "^5.2"
+    }
+}
