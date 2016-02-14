@@ -25,7 +25,7 @@
 	}
 	@include respond-to(wide-screens) {
 		margin-bottom: 30px;
-	}
+	}	
 }
 .form-contact-item__half{
 	margin-bottom: 20px;
@@ -134,4 +134,48 @@
     &:active{
 		border-top: 4px solid #687b8f;
 	}
+}
+
+.has-error{
+	border-color: red;
+}
+
+.qtip-rounded,
+.qtip-tipsy,
+.qtip-bootstrap{
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+.qtip-mystyle{
+	background-color: #f97e76;
+	border-color: #f97e76;
+	font-family: 'Arial';
+	color: #ffffff;
+	font-size: 13px;
+}
+.qtip-rounded .qtip-titlebar{
+	-moz-border-radius: 4px 4px 0 0;
+	-webkit-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+}
+.server-mes-item{
+	display: none;
+	font-size: 13px;
+	font-family: fira_sanslight, sanserif, arial, helvetica;
+	padding: 10px 7px;
+	border: 1px solid #67dffa;
+	border-radius: 5px;
+	color: #67dffa;
+	margin-bottom: 6px;
+}
+.error-mes {
+	background: #fad2d1;
+	color: #f97e76;
+	border-color: #f97e76;
+}
+.success-mes {
+	background: #b8e1ce;
+	color: #49bb7b;
+	border-color: #49bb7b;
 }

@@ -19,26 +19,39 @@ function meny() {
 		$(window).resize(_windowSize);
 	};
 
+
 	var _windowSize = function(){
+		var mainPosition = $('.form-contact-input');
 		console.log(widthHtml);
 		widthHtml = $('html').width();
 		console.log(widthHtml);
 		if ( widthHtml > '1100'){
-			_hideMeny();
-		};
-		var mainPosition = $('.form-contact-input');
-
-		if ( widthHtml < '767'){
+			_hideMeny();		
 				
-			console.log(mainPosition);
 		};
+		if ( widthHtml >= '767'){
+			$.each(mainPosition, function(index, val) {
+				var WidePosQtip = $(this).attr('qtip-posWide');
+				$(this).attr('qtip-position', WidePosQtip);
+				QtipTrue();
+				console.log($(this).attr('qtip-position'));
+			});
+		};
+		if ( widthHtml < '767'){
+			$.each(mainPosition, function(index, val) {
+				$(this).attr('qtip-position', 'mob');
+				QtipTrue();
+				console.log($(this).attr('qtip-position'));
+			});			
+		};		
 		return widthHtml;
 	};
 
-	var changeQtipPosition= function(){
-
-
-
+	var QtipTrue = function(){
+		if ($("div").is(".qtip")) {
+			console.log('отработала наличие qtip');
+			$(".form-contact-button__submit").click();
+		};
 	};
 
 
@@ -58,12 +71,12 @@ function meny() {
 		menyClose.css('display','none');
 		fonM.fadeOut(600);
 		console.log('close');
-		console.log(widthHtml);				
+		console.log(widthHtml);			
 	};
 	
 	init();
-
-};
+	return textTest
+}
 
 module.exports = meny;
 

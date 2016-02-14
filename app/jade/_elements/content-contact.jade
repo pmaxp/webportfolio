@@ -1,21 +1,23 @@
 .content-content
 	.content-content-inner
 		h3.form-contact-title У вас интересный проект? Напишите мне
-		form(id="send_message_mail").content-section.content-section-contact			
+		form(id="send_message_mail" method=post enctype="multipart/form-data").content-section.content-section-contact
 			ul.form-contact-list
+				li.form-contact-item
+					div.server-mes-item.error-mes
+					div.server-mes-item.success-mes
 				li.form-contact-item
 					.form-contact-item__half
 						.form-contact-item-title Имя
-						input(name='name' type='text' maxleght='35' placeholder='Как к Вам обращаться' qtip-content="Вы не ввели имя" qtip-position="left").form-contact-input.form-contact-input__name
+						input(name='name' type='text' maxleght='35' placeholder='Как к Вам обращаться' qtip-content="Вы не ввели имя" qtip-position="left" qtip-posWide="left").form-contact-input.form-contact-input__name
 					.form-contact-item__half
 						.form-contact-item-title Email
-						input(name='email' type='text' maxleght='35' placeholder='Куда мне писать' qtip-content="Вы не ввели email" qtip-position="right").form-contact-input.form-contact-input__email
+						input(name='email' type='text' maxleght='35' placeholder='Куда мне писать' qtip-default="Вы не ввели email" qtip-content="Вы не ввели email" qtip-position="right" qtip-posWide="right").form-contact-input.form-contact-input__email
 				li.form-contact-item
 					.form-contact-item-title Сообщение
-					textarea(name='comment' type='text' maxleght='450' placeholder='Кратко, в чем суть' qtip-content="Что вы хотите от меня" qtip-position="left").form-contact-input.form-contact-input__comment
+					textarea(name='mess' type='text' maxleght='450' placeholder='Кратко, в чем суть' qtip-content="Что вы хотите от меня" qtip-position="left" qtip-posWide="left").form-contact-input.form-contact-input__comment
 				li.form-contact-item
 					div(data-sitekey="6LecrBcTAAAAAHfyAgle2ugPYUMwLX_EHorgTygn").g-recaptcha
 				li.form-contact-item
 					button(type="submit").form-contact-button.form-contact-button__submit Отправить
 					button(type="reset").form-contact-button.form-contact-button__reset Очистить
-							

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bc4933b660a65d1e929830f48b960d28",
+    "hash": "63a72b8735cbc914cf0fec3df7dcc2d2",
     "content-hash": "2a53edfc597062878fe82043197a6406",
     "packages": [
         {
@@ -38,7 +38,7 @@
                     "ReCaptcha\\": "src/ReCaptcha"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -89,7 +89,7 @@
                     "extras/ntlm_sasl_client.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "LGPL-2.1"
             ],

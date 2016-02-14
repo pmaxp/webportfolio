@@ -1,10 +1,11 @@
+;var $ = jQuery = require('jquery');
+
 require("recaptcha");
 
-function loadreCapcha() {
+function loadReCapcha() {
 	
 	
 	var init = function() {
-			_setUpListners();
 			onloadCallback();
 		};
 		
@@ -13,6 +14,7 @@ function loadreCapcha() {
 	};	
 
 	var onloadCallback = function() {
+		console.log('Инициализация модуля capcha');
         grecaptcha.render('html_element', {
           'sitekey' : '6LecrBcTAAAAAHfyAgle2ugPYUMwLX_EHorgTygn'
         });
@@ -22,4 +24,4 @@ function loadreCapcha() {
 
 };
 
-module.exports = loadreCapcha;
+module.exports = loadReCapcha;

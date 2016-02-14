@@ -132,13 +132,13 @@ gulp.task('js', function () {
         .pipe(reload({stream: true}));
 });
 
-//-----------Copy-PHP------------//
-// gulp.task('copy-php', function () {
-//     return gulp.src(path.watch.php)
-//         .pipe(plumber())
-//         .pipe(gulp.dest(path.dist.php))
-//         .pipe(reload({stream: true}));
-// });
+// -----------Copy-PHP------------//
+gulp.task('copy-php', function () {
+    return gulp.src(path.watch.php)
+        .pipe(plumber())
+        .pipe(gulp.dest(path.dist.php))
+        .pipe(reload({stream: true}));
+});
 //-----------Copy------------//
 gulp.task('copy', function () {
     return gulp.src(path.app.htaccess)
@@ -147,9 +147,9 @@ gulp.task('copy', function () {
         .pipe(reload({stream: true}));
 });
 //-----------Load PHP------------//
-// gulp.task('php', function(){
-//     connectPHP.server({ base: './dist', keepalive:true, hostname: 'localhost', port:8080});
-// });
+gulp.task('php', function(){
+    connectPHP.server({ base: './dist', keepalive:true, hostname: 'localhost', port:8080});
+});
 
 //-----------Load Server------------//
 gulp.task('server', function () {
@@ -169,6 +169,7 @@ gulp.task('watch', function () {
   gulp.watch(path.watch.sprite, ['sprite']);
   gulp.watch(path.watch.js, ['js']);
   gulp.watch(path.watch.htaccess, ['copy']);
+  gulp.watch(path.watch.php, ['copy-php']);
 });
 
 gulp.task('clean', del.bind(null, 'dist'));
@@ -180,8 +181,9 @@ gulp.task('build', [
   'img',
   'sprite',
   'copy',
+  'copy-php',
   'js'
 ]);
 
 
-gulp.task('default', ['build', 'server', 'watch']);
+gulp.task('default', ['build', 'php', 'server', 'watch']);
