@@ -30,6 +30,7 @@ function validation() {
 		};
 
 	function validateForm (form) { // Проверяет, чтобы все поля формы были не пустыми. Если пустые - вызывает тултипы
+			// response = grecaptcha.getResponse(),
 	     	 // console.log('Проверяем форму');
 			var response = grecaptcha.getResponse(),
 				elements = form
@@ -38,8 +39,6 @@ function validation() {
 					      valid = true;
 
 			inputMail.attr('qtip-content', defaultMail);
-
-			console.log(grecaptcha);
 
 			 if(inputMail.val() != ''){
 		      	if(inputMail.val().search(valMail) == 0){		      		
@@ -81,47 +80,59 @@ function validation() {
       };
 
 	var _sendMail = function (ev) {
-	      console.log('почта');
-	      
-	      ev.preventDefault();// отмена стандартного действия элемента
-	      var form = $(this);
-	      console.log('Валидация формы');
-	      // validateForm(form);  
-           url = './php/actions/connect.php',
-           myServerGiveAnAnswer = _ajaxForm(form, url);
-      
-      	if (!validateForm(form)) return false;
+		console.log('почта');	      
+		ev.preventDefault();// отмена стандартного действия элемента
+		
 
-	      var answerServer = _ajaxForm(form, url);
-	          answerServer.done(function (ans) {
-			      var successBox = form.find('.success-mes'),
-			            errorBox = form.find('.error-mes');
-			      if(ans.status === 'OK'){        
-			        errorBox.hide();
-			        successBox.text(ans.text).show();        
-			      }else{
-			        successBox.hide();
-			        errorBox.text(ans.text).show();
-			      }
-	      });
-	  };
+		var form = $(this), 
+			url = './php/actions/connect.php',
+			successBox = form.find('.success-mes'),
+            errorBox = form.find('.error-mes');
 
-	var _ajaxForm = function(form, url){    
+		if (!validateForm(form)) return false;
+		// validateForm(form);
 
-	    var data = form.serialize();
-	    	
+		var data = form.serialize();	    	
 	    // запрос на сервер
-	    return $.ajax({
-	        url: url,
-	        type: 'POST',
-	        dataType: 'json',
-	        data: data,
-	    }).fail(function(ans){
-	       // console.log('Ошибка в PHP');
-	       form.find('.error-mes').text('На сервере произошла ошибка').show();
-	    });   
-	     
-	  	};
+		$.ajax({
+			url: url,
+			type: 'POST',
+			dataType: 'json',
+			data: data,
+			beforeSend: function(data) { // сoбытиe дo oтпрaвки
+		            form.find('input[type="submit"]').attr('disabled', 'disabled'); // нaпримeр, oтключим кнoпку, чтoбы нe жaли пo 100 рaз
+				},
+			success: function(data){ // сoбытиe пoслe удaчнoгo oбрaщeния к сeрвeру и пoлучeния oтвeтa
+		       		if (data.status === 'OK') { // eсли oбрaбoтчик 
+		       		errorBox.hide();
+        			successBox.text(data.text).show(); // пишeм чтo всe oк
+		       		}else{
+						successBox.hide();
+						errorBox.text(data.text).show();
+      }
+		         },
+		       error: function (data) { 
+					successBox.hide();
+					errorBox.text('На сервере произошла ошибка').show();
+		         },
+		       complete: function(data) { // сoбытиe пoслe любoгo исхoдa
+		            form.find('input[type="submit"]').prop('disabled', false); // в любoм случae включим кнoпку oбрaтнo
+		        }
+	    });	
+	};
+	
+	var ServerError = function(form, data) { 
+		console.log('Ошибка в PHP');
+	    form.find('.error-mes').text('На сервере произошла ошибка').show();
+	};
+	var ServerSuccess = function(form, data) { 
+		console.log('Ошибка в PHP');
+	    form.find('.error-mes').text('На сервере произошла ошибка').show();
+	};
+	var ServerComplete = function(form, data) { 
+		form.find('input[type="submit"]').prop('disabled', false);
+	};
+
 
 	var _removeValidCapcha = function() { // Убирает красную обводку у элементов форм
 		// divCapcha.removeClass('has-error');
@@ -131,7 +142,7 @@ function validation() {
 	var _removeError = function() { // Убирает красную обводку у элементов форм
 	      // console.log('Красная обводка у элементов форм удалена');
 	      $(this).removeClass('has-error');
-		};
+	};
 
 	var _clearForm = function(form) { // Очищает форму
 
@@ -140,18 +151,18 @@ function validation() {
 		form.find('.has-error').removeClass('has-error'); // удаляем красную подсветку
 		form.find('.error-mes, success-mes').text('').hide(); // очищаем и прячем сообщения с сервера
 		grecaptcha.reset();
-		};
+	};
 
 	var _createQtip = function (element, position) { // Создаёт тултипы
-	      // console.log('Создаем тултип');
-	      // позиция тултипа
-	      if (position === 'right') {
-	        position = {
-	          container: $('form'),
-	          my: 'left center',
-	          at: 'right center'
-	        }
-	    } else { 
+		// console.log('Создаем тултип');
+		// позиция тултипа
+		if (position === 'right') {
+			position = {
+				container: $('form'),
+				my: 'left center',
+				at: 'right center'
+			}
+		} else { 
 			if (position === 'mob') {
 				position = {
 				container: $('form'),
@@ -193,7 +204,7 @@ function validation() {
 	          			}
 	        		}
 	      }).trigger('show');	      
-    	};
+    };
     	
 	init();
 };
