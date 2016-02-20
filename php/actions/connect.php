@@ -14,7 +14,7 @@
 			$data['text'] = 'ОШИБКА! Неверно введен e-mail';
 			}else{
 				$data['status'] = 'OK';
-				$data['text'] = 'Отправлено на сервер!';
+				$data['text'] = 'Спасибо! Письмо отправлено!';
 			}
 		}
 
@@ -22,9 +22,25 @@
 		echo json_encode($data);
         // обратите внимание, теперь мы можем писать красивые письма, с помощью html тегов ;-) 
         $message = ' 
-	<b>Имя отправителя:</b>'.$name.'<br />
-	<b>Контактный email:</b>'.$email.'<br /> 
-	'.$mess;
+			<p><b>Имя отправителя:</b>'.$name.'</p>
+			<p><b>Контактный email:</b>'.$email.'</p>
+			<p><b>Сообщение:</b>'.$mess.'</p>';
+
+        $replymessage = ' 
+	<p>Спасибо за ваше сообщение, в ближайщее время я вам отвечу.</p>
+        <hr>
+    <p><b>Имя отправителя:</b>'.$name.'</p>
+    <p><b>Контактный email:</b>'.$email.'</p>
+    <p><b>Сообщение:</b>'.$mess.'</p>
+    <p><b>Сообщение:</b>'.$mess.'</p>
+        <hr>
+    <div>
+        С наилучшими пожеланиями, Максим Попов.</br>
+        <a href="http://p-max-p.ru/">p-max-p.ru</a></br>
+        <a href="tel:+79268368152">тел. +7(926)836-81-52</a></br>
+        <a href="skype:p_max_p?chat">skype: p_max_p</a></br>
+    </div>';
+
 
         // подключаем файл класса для отправки почты 	
         require '../vendor/phpmailer/phpmailer/class.phpmailer.php';
@@ -33,10 +49,28 @@
         // global $site;
 
         $mail = new PHPMailer(); 
-        $mail->From = 'anbelmp@gmail.com';      // от кого 
+        $mail->From = 'dev.pmaxp@gmail.com';      // от кого 
         $mail->FromName = 'p-max-p.ru';   // от кого 
-        $mail->AddAddress('dev.pmaxp@gmail.com', 'Maks'); // кому - адрес, Имя
-        $mail->IsHTML(true); // выставляем формат письма HTML 
+        $mail->Subject = 'Письмо с p-max-p.ru';
+        $mail->AddAddress('dev.pmaxp@gmail.com', 'Popov Maks'); // кому - адрес, Имя
+        $mail->IsHTML(true); // выставляем формат письма HTML
+        $mail->Body = $message;
+
+        // отправляем наше письмо 
+        if (!$mail->Send())die ('Mailer Error: '.$mail->ErrorInfo);
+
+
+        $mailDuble = new PHPMailer(); 
+        $mailDuble->From = 'dev.pmaxp@gmail.com'; // от кого 
+        $mailDuble->FromName = 'p-max-p.ru';   // от кого 
+		$mailDuble->Subject = 'Письмо с p-max-p.ru';
+        $mailDuble->AddAddress($email, $name); // кому - адрес, Имя
+        $mailDuble->IsHTML(true); // выставляем формат письма HTML
+        $mailDuble->Body = $replymessage;
+
+		// отправляем наше письмо 
+		if (!$mailDuble->Send())die ('Mailer Error: '.$mailDuble->ErrorInfo);
+
         // если был файл, то прикрепляем его к письму 
         // if(isset($_FILES['attachfile'])) { 
         //          if($_FILES['attachfile']['error'] == 0){ 
@@ -51,13 +85,8 @@
         //             $mess .= 'А вот и наша картинка:<br /><img src="cid:my-attach" border=0><br />я показал как ее прикреплять, соответственно Вам осталось вставить ее в нужное место Вашего письма ;-) '; 
         //          } 
         // }
-       $mail->Body = $message;
-
-        // отправляем наше письмо 
-		if (!$mail->Send())die ('Mailer Error: '.$mail->ErrorInfo)
-
-
-
+		
+        
 
 
 // if (!empty($_POST['submit'])) complete_mail(); 
