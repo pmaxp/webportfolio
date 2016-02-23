@@ -21,24 +21,54 @@
 		header("Content-Type: application/json");
 		echo json_encode($data);
         // обратите внимание, теперь мы можем писать красивые письма, с помощью html тегов ;-) 
-        $message = ' 
-			<p><b>Имя отправителя:</b>'.$name.'</p>
-			<p><b>Контактный email:</b>'.$email.'</p>
-			<p><b>Сообщение:</b>'.$mess.'</p>';
+        $message = '
+        <head>
+			<meta charset="UTF-8">	
+		</head>
+		<body>	
+			<div style="font-family: sans-serif, arial, gelvetica; width: 100%; height: 100%; background: url("http://p-max-p.ru/img/comppattern.png");">
+				<div style="max-width: 600px; margin: 0 auto; background: #eff3f7; color: #5a636b; border-radius: 5px; overflow: hidden; box-sizing: border-box; padding: 30px;">
+					<p><b>Имя отправителя:</b>'.$name.'</p>
+					<p><b>Контактный email:</b>'.$email.'</p>
+					<p><b>Сообщение:</b>'.$mess.'</p>
+				</div>
+			</div>';
 
-        $replymessage = ' 
-	<p>Спасибо за ваше сообщение, в ближайщее время я вам отвечу.</p>
-        <hr>
-    <p><b>Имя отправителя:</b>'.$name.'</p>
-    <p><b>Контактный email:</b>'.$email.'</p>
-    <p><b>Сообщение:</b>'.$mess.'</p>
-    <p><b>Сообщение:</b>'.$mess.'</p>
-        <hr>
-    <div>
-        С наилучшими пожеланиями, Максим Попов.</br>
-        <a href="http://p-max-p.ru/">p-max-p.ru</a></br>
-        <a href="tel:+79268368152">тел. +7(926)836-81-52</a></br>
-        <a href="skype:p_max_p?chat">skype: p_max_p</a></br>
+        $replymessage = '<html lang="ru-RU">
+<head>
+	<meta charset="UTF-8">	
+</head>
+<body>	
+	<div style="font-family: sans-serif, arial, gelvetica; width: 100%; height: 100%; background: url("http://p-max-p.ru/img/comppattern.png");">
+		<div style="max-width: 600px; margin: 0 auto; background: #eff3f7; color: #5a636b; border-radius: 5px; overflow: hidden; box-sizing: border-box; padding: 30px;">
+			<div style="max-height: 50px; text-align: center; overflow: hidden;">
+				<a style="max-height: 50px;"href="http://p-max-p.ru/">
+					<img style="max-height: 50px;" src="http://p-max-p.ru/img/max.png">
+				</a>
+			</div>
+			<p style="font-size: 1.3rem;">Спасибо за ваше сообщение, в ближайщее время я вам отвечу.</p>
+			<p style="font-size: .8rem;">Копия вашего сообщения:</p>
+		    <div style="padding-left: 40px; border-bottom: 1px solid #2fa5bc; border-top: 1px solid #2fa5bc; margin-bottom: 40px;">
+			    <p><b>Имя отправителя:</b> '.$name.'</p>
+			    <p><b>Контактный email:</b> '.$email.'</p>
+			    <p><b>Сообщение:</b> '.$mess.'</p>
+			</div>
+			<div style="margin-bottom: 10px; text-align: center; font-weight: bold;">С наилучшими пожеланиями, Попов Максим.</div>	        
+		    <div style="text-align: center;">
+		        <a style="display: inline-block; padding: 10px; color: #38c6e2;"
+			        href="http://p-max-p.ru/">
+			        <span>сайт: p-max-p.ru</span>
+			    </a>
+		        <a style="display: inline-block; padding: 10px; color: #38c6e2;"
+			        href="tel:+79268368152">
+			        <span>тел: +7(926)836-81-52</span>
+			    </a>
+		        <a style="display: inline-block; padding: 10px; color: #38c6e2;"
+			        href="skype:p_max_p?chat">
+			        <span>skype: p_max_p</span>
+			    </a>
+		    </div>
+	    </div>
     </div>';
 
 
@@ -48,11 +78,12 @@
 
         // global $site;
 
-        $mail = new PHPMailer(); 
+        $mail = new PHPMailer();
+        $mail->CharSet = "UTF-8";
         $mail->From = 'dev.pmaxp@gmail.com';      // от кого 
         $mail->FromName = 'p-max-p.ru';   // от кого 
         $mail->Subject = 'Письмо с p-max-p.ru';
-        $mail->AddAddress('dev.pmaxp@gmail.com', 'Popov Maks'); // кому - адрес, Имя
+        $mail->AddAddress('dev.pmaxp@gmail.com', 'Popov Maksim'); // кому - адрес, Имя
         $mail->IsHTML(true); // выставляем формат письма HTML
         $mail->Body = $message;
 
@@ -60,7 +91,8 @@
         if (!$mail->Send())die ('Mailer Error: '.$mail->ErrorInfo);
 
 
-        $mailDuble = new PHPMailer(); 
+        $mailDuble = new PHPMailer();
+        $mailDuble->CharSet = "UTF-8";
         $mailDuble->From = 'dev.pmaxp@gmail.com'; // от кого 
         $mailDuble->FromName = 'p-max-p.ru';   // от кого 
 		$mailDuble->Subject = 'Письмо с p-max-p.ru';

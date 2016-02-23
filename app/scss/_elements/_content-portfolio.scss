@@ -45,6 +45,9 @@
 	&:hover{
 		font-size: 1rem;
 		opacity: 1;
+		@include respond-to(medium-screens) {
+			font-size: .8rem;
+	}
 		@include respond-to(wide-screens) {
 			font-size: .7rem;
 		}
@@ -56,6 +59,7 @@
 .content-portfolio-img{
 	height: 100%;
 	width: 100%;
+	vertical-align: top;
 }
 .content-portfolio-name{
 	display: inline-block;
@@ -64,5 +68,7 @@
 	color: $colorFontAccent;
 	border: 2px solid $colorFontAccent;
 	padding: 2px 8px;
-	
+	@include respond-to(medium-screens) {			
+			padding: 2px 6px;
+	}	
 }
