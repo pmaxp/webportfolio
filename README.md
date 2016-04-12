@@ -12,6 +12,9 @@ $ git clone https://github.com/pmaxp/webportfolio.git
 $ cd webportfolio
 $ npm i
 $ bower i
+$ cd php
+$ php composer.phar update
+$ cd ..
 $ gulp
 ```
 
